@@ -19,7 +19,7 @@ class Inscription
         $DBUser = getenv('MYSQL_ADDON_USER');
         $DBPass = getenv('MYSQL_ADDON_PASSWORD');
         $DBPort = getenv('MYSQL_ADDON_PORT');
-        $DBInfos = "mysql:host=" . $Host . ";dbname=" . $DB;
+        $DBInfos = "mysql:host=" . $Host . ";dbname=" . $DB . ";port=" . $DBPort;
         self::$Pdo = new PDO($DBInfos,$DBUser,$DBPass);
         $this->email = $email;
         $this->prenom = $prenom;
