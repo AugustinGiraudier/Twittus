@@ -10,9 +10,9 @@ $DBUser = getenv('MYSQL_ADDON_USER');
 $DBPass = getenv('MYSQL_ADDON_PASSWORD');
 $DBPort = getenv('MYSQL_ADDON_PORT');
 $DBInfos = "mysql:host=" . $Host . ";port=" . $DBPort . ";dbname=" . $DB;
-echo $DBInfos;
-echo $DBUser;
-echo $DBPass;
+var_dump($DBInfos) ;
+var_dump($DBUser);
+var_dump($DBPass);
 
 ////////////
 ?>
