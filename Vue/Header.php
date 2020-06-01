@@ -7,7 +7,7 @@ require "Vue/HTMLFunctions.php";
     <meta charset="utf-8">
     <title> <?= $title; ?> </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="Public/favicon.ico"/>
   </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
