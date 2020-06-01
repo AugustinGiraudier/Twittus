@@ -1,8 +1,8 @@
 <?php
 $title = "Twittus - Home";
-require_once "../vendor/Autoload.php";
-require "../Controlleur/Home.php";
-require "Header.php";
+require_once "Vendor/Autoload.php";
+require "Controlleur/Home.php";
+require "Vue/Header.php";
 ?>
 
 <div class="container mt-5 border">
@@ -28,6 +28,6 @@ require "Header.php";
 </div>
 
 <?php
-require "Footer.php";
+require "Vue/Footer.php";
 ?>
 

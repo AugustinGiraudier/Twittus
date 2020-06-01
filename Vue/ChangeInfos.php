@@ -1,7 +1,7 @@
 <?php
 $title = "Twittus - Modifier mes infos";
-require '../Controlleur/ChangeInfos.php';
-require "Header.php";
+require 'Controlleur/ChangeInfos.php';
+require "Vue/Header.php";
 ?>
 
 
@@ -85,5 +85,5 @@ require "Header.php";
 </div>
 
 <?php 
-require "Footer.php";
+require "Vue/Footer.php";
 ?>

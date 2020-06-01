@@ -4,8 +4,8 @@ $recherche = null;
 $erreurs = null;
 $infos = null;
 $AlreadyFollowed = null;
-require "Header.php";
-require "../vendor/autoload.php";
+require "Vue/Header.php";
+require_once "Vendor/Autoload.php";
 use Twittus\Inscription;
 ?>
 
@@ -327,5 +327,5 @@ if(isset($_POST['NewTweet']))
 
 
 <?php 
-require "Footer.php";
+require "Vue/Footer.php";
 ?>
