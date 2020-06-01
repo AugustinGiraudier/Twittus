@@ -1,6 +1,6 @@
 <?php
 $title = "Twittus - Home";
-require_once "../vendor/autoload.php";
+require_once "../vendor/Autoload.php";
 require "../Controlleur/Home.php";
 require "Header.php";
 ?>
