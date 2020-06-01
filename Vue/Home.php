@@ -3,6 +3,18 @@ $title = "Twittus - Home";
 require_once "Vendor/Autoload.php";
 require "Controlleur/Home.php";
 require "Vue/Header.php";
+//////////////
+$Host = getenv('MYSQL_ADDON_HOST');
+$DB = getenv('MYSQL_ADDON_DB');
+$DBUser = getenv('MYSQL_ADDON_USER');
+$DBPass = getenv('MYSQL_ADDON_PASSWORD');
+$DBPort = getenv('MYSQL_ADDON_PORT');
+$DBInfos = "mysql:host=" . $Host . ";port=" . $DBPort . ";dbname=" . $DB;
+echo $DBInfos;
+echo $DBUser;
+echo $DBPass;
+
+////////////
 ?>
 
 <div class="container mt-5 border">
