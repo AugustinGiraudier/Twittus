@@ -112,7 +112,7 @@ if(isset($_GET['step']))
     if($_GET['step'] === 'deconnexion')
     {
         session_destroy();
-        header('Location: Home');
+        header('Location: /');
         exit();
     }
     if($_GET['step'] === 'changeinfos')
@@ -161,7 +161,7 @@ if(isset($_GET['retweetid']))
 }
 if(!(isset($_SESSION['email'])))
 {
-    header('Location: Home');
+    header('Location: /');
     exit();
 }
 if(isset($_POST['recherche']))

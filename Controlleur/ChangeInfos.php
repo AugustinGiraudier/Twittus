@@ -6,7 +6,7 @@ $succes = null;
 
 if(!(isset($_SESSION['email'])))
 {
-    header('Location: Home.php');
+    header('Location: /');
     exit();
 }
 if(isset($_POST['NewPrenom']))

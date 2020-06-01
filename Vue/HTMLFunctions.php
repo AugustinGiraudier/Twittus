@@ -3,7 +3,7 @@ function navlink(string $title, string $classAtribute = null): string
 {
     return <<<HTML
     <li class="nav-item">
-    <a class="nav-link {$classAtribute}" href="Home">$title<span class="sr-only">(current)</span></a>
+    <a class="nav-link {$classAtribute}" href="/">$title<span class="sr-only">(current)</span></a>
     </li>
 HTML;
 }
