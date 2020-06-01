@@ -1,0 +1,17 @@
+{
+    "name": "gus24/scripts",
+    "authors": [
+        {
+            "name": "augiraudie",
+            "email": "augustin.giraudier@etu.uca.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Twittus\\": "Model/class/"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
+}
