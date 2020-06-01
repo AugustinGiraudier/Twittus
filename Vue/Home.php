@@ -14,8 +14,8 @@ require "Vue/Header.php";
   <?php endif?>
   <div class="row justify-content-md-center mt-5">
     <div class="col text-center mx-5">
-      <a class="list-group-item <?= $step_Inscription ? 'active' : ''?>" href="Home?step=inscription">Inscription</a>
-      <a class="list-group-item <?= $step_connexion ? 'active' : ''?>" href="Home?step=connexion">Connexion</a>
+      <a class="list-group-item <?= $step_Inscription ? 'active' : ''?>" href="?step=inscription">Inscription</a>
+      <a class="list-group-item <?= $step_connexion ? 'active' : ''?>" href="?step=connexion">Connexion</a>
     </div>
     <?php 
     if($step_connexion):
