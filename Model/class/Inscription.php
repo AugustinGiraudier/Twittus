@@ -14,7 +14,13 @@ class Inscription
 
     public function __construct(string $email, string $prenom, string $nom, string $password)
     {
-        self::$Pdo = new PDO("mysql:host=127.0.0.1;dbname=twitter","root");
+        $Host = getenv('MYSQL_ADDON_HOST');
+        $DB = getenv('MYSQL_ADDON_DB');
+        $DBUser = getenv('MYSQL_ADDON_USER');
+        $DBPass = getenv('MYSQL_ADDON_PASSWORD');
+        $DBPort = getenv('MYSQL_ADDON_PORT');
+        $DBInfos = "mysql:host=" . $Host . ";dbname=" . $DB;
+        self::$Pdo = new PDO($DBInfos,$DBUser,$DBPass);
         $this->email = $email;
         $this->prenom = $prenom;
         $this->nom = $nom;
