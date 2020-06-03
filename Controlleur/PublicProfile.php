@@ -1,5 +1,5 @@
 <?php 
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 use Twittus\Inscription;
 $infos = null;
 function FindUserWithId(int $id)

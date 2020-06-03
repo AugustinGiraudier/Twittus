@@ -1,7 +1,7 @@
 <?php
 $title = "Twittus - Profile Public";
-require "Vue/Header.php";
-require 'Controlleur/PublicProfile.php';
+require "../Vue/Header.php";
+require '../Controlleur/PublicProfile.php';
 ?>
 
 <div class="container-fluid">
@@ -42,5 +42,5 @@ require 'Controlleur/PublicProfile.php';
 
 
 <?php 
-require "Vue/Footer.php";
+require "../Vue/Footer.php";
 ?>
