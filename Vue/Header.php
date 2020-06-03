@@ -10,7 +10,7 @@ require "../Vue/HTMLFunctions.php";
     <link rel="shortcut icon" href="Public/LogoTwittus.png"/>
   </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-primary bg-dark">
       <img style ="width: 55px; height: 55px;" class = "mr-3 " src="Public/LogoTwittus.png" alt="">
       <a class="navbar-brand" href="/">Twittus</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
