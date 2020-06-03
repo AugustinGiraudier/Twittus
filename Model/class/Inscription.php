@@ -20,7 +20,8 @@ class Inscription
         $DBPass = getenv('MYSQL_ADDON_PASSWORD');
         $DBPort = getenv('MYSQL_ADDON_PORT');
         $DBInfos = "mysql:host=" . $Host . ":" . $DBPort . ";dbname=" . $DB;
-        self::$Pdo = new PDO($DBInfos,$DBUser,$DBPass);
+        //self::$Pdo = new PDO($DBInfos,$DBUser,$DBPass);
+        self::$Pdo = new PDO("mysql:dbname=brkmsaimyw3npjr7vxcv;host=brkmsaimyw3npjr7vxcv-mysql.services.clever-cloud.com;port=3306","uexlxeppzpphvxl9","jYB2aELCpPekblmKnAGz");
         $this->email = $email;
         $this->prenom = $prenom;
         $this->nom = $nom;
