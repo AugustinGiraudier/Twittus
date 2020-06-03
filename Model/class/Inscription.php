@@ -5,7 +5,7 @@ use \Exception;
 
 class Inscription
 {
-    private static $Pdo;
+    private static $Pdo = null;
     private $email = null;
     private $prenom = null;
     private $nom = null;
@@ -14,14 +14,7 @@ class Inscription
 
     public function __construct(string $email, string $prenom, string $nom, string $password)
     {
-        $Host = getenv('MYSQL_ADDON_HOST');
-        $DB = getenv('MYSQL_ADDON_DB');
-        $DBUser = getenv('MYSQL_ADDON_USER');
-        $DBPass = getenv('MYSQL_ADDON_PASSWORD');
-        $DBPort = getenv('MYSQL_ADDON_PORT');
-        $DBInfos = "mysql:host=" . $Host . ":" . $DBPort . ";dbname=" . $DB;
-        //self::$Pdo = new PDO($DBInfos,$DBUser,$DBPass);
-        self::$Pdo = new PDO("mysql:dbname=brkmsaimyw3npjr7vxcv;host=brkmsaimyw3npjr7vxcv-mysql.services.clever-cloud.com;port=3306","uexlxeppzpphvxl9","jYB2aELCpPekblmKnAGz");
+        self::InitPdo();
         $this->email = $email;
         $this->prenom = $prenom;
         $this->nom = $nom;
@@ -31,7 +24,7 @@ class Inscription
     {
         if(self::$Pdo == null)
         {
-            self::$Pdo = new PDO("mysql:host=127.0.0.1;dbname=twitter","root");
+            self::InitPdo();
         }
         return self::$Pdo;
     }
@@ -113,5 +106,15 @@ class Inscription
             return true;
         }
         throw new Exception("Mot de pass trop fragile (ajoutez des chiffres, des majuscules ou des signes particuliers...");
+    }
+    private static function InitPdo()
+    {
+        $Host = getenv('MYSQL_ADDON_HOST');
+        $DB = getenv('MYSQL_ADDON_DB');
+        $DBUser = getenv('MYSQL_ADDON_USER');
+        $DBPass = getenv('MYSQL_ADDON_PASSWORD');
+        $DBPort = getenv('MYSQL_ADDON_PORT');
+        $DBInfos = "mysql:host=" . $Host . ":" . $DBPort . ";dbname=" . $DB;
+        self::$Pdo = new PDO($DBInfos,$DBUser,$DBPass);
     }
 }
