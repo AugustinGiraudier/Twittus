@@ -5,7 +5,7 @@ require "../Controlleur/Home.php";
 require "../Vue/Header.php";
 ?>
 
-<div class="container mt-5 border">
+<div class="container mt-5 border rounded">
   <?php if(isset($_GET['success'])):?> 
     <div class="alert alert-success container mt-4 text-center">Vous avez été enregistré</div>
   <?php endif?>
