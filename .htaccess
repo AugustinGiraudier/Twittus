@@ -1,4 +1,11 @@
   
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+Options All -Indexes
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ Public/index.php [QSA,L] 
