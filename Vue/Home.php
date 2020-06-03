@@ -15,7 +15,7 @@ require "../Vue/Header.php";
   <div class="row justify-content-md-center mt-5">
     <div class="col text-center mx-5">
       <a class="list-group-item rounded <?= $step_Inscription ? 'active' : ''?>" href="?step=inscription">Inscription</a>
-      <a class="list-group-item rounded <?= $step_connexion ? 'active' : ''?>" href="?step=connexion">Connexion</a>
+      <a class="list-group-item rounded mt-4<?= $step_connexion ? 'active' : ''?>" href="?step=connexion">Connexion</a>
     </div>
     <?php 
     if($step_connexion):
