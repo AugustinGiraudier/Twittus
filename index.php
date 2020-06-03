@@ -1,11 +1,11 @@
 <?php
 require "vendor/autoload.php";
 $router = new AltoRouter();
-$router->map('GET','/',function () {
+$router->map('GET','/Home',function () {
     require "Vue/Home.php";
     
 });
-$router->map('POST','/',function () {
+$router->map('POST','/Home',function () {
     require "Vue/Home.php";
     
 });
