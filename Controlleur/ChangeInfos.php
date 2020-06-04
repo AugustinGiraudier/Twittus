@@ -35,14 +35,26 @@ if(isset($_POST['NewNom']))
 }
 if(isset($_POST['NewEmail']))
 {
-    $Pdo = Inscription::GetPdo();
-    $query5 = $Pdo->prepare("UPDATE `users` SET `e_mail` = :email WHERE `users`.`user_id` = :id;");
-    $query5->execute([
-        'email'    => htmlentities($_POST['NewEmail']),
-        'id'        => htmlentities($_SESSION['id'])
-    ]);
-    $_SESSION['email'] = htmlentities($_POST['NewEmail']);
-    $succes = 'Modification effectuée avec succès !';
+    $continue = true;
+    try{
+        Inscription::VerifyEmail($_POST['NewEmail']);
+    }
+    catch(Exception $e)
+    {
+        $erreurs = $e->getMessage();
+        $continue = false;
+    }
+    if($continue)
+    {
+        $Pdo = Inscription::GetPdo();
+        $query5 = $Pdo->prepare("UPDATE `users` SET `e_mail` = :email WHERE `users`.`user_id` = :id;");
+        $query5->execute([
+            'email'    => htmlentities($_POST['NewEmail']),
+            'id'        => htmlentities($_SESSION['id'])
+        ]);
+        $_SESSION['email'] = htmlentities($_POST['NewEmail']);
+        $succes = 'Modification effectuée avec succès !';
+    }
     unset($_GET['step']);
 }
 if(isset($_POST['NewMdp']))

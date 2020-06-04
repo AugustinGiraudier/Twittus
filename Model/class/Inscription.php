@@ -50,9 +50,9 @@ class Inscription
     ]);
     }
 
-    private function VerifyEmail(string $email):bool
+    public static function VerifyEmail(string $email):bool
     {
-        $Pdo = $this->GetPdo();
+        $Pdo = self::GetPdo();
         $query = $Pdo->prepare("SELECT users.user_id FROM users WHERE users.e_mail = :email");
         $query->execute([
             'email'  => $email
