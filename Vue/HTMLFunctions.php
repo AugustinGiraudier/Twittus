@@ -20,7 +20,7 @@ function ConnectionForm():string
       <form action = ""  method="POST">
         <label for="exampleInputEmail1">Adresse Email :</label>
         <input type="email" name="Cemail" class="form-control mt-1 mb-2" value ="{$address}" placeholder="Entez votre e-mail" required>
-        <label for="exampleInputEmail1">Mot de passse :</label>
+        <label for="exampleInputEmail1">Mot de passe :</label>
         <input type="password" name="Cpassword" class="form-control mt-1 mb-2" placeholder="Entez votre mot de passe" required>
         <button type="submit" class="btn btn-primary mt-5 ml-5"> Je me connecte </button>
       </form>
@@ -40,7 +40,7 @@ function InscriptionForm():string
             <input type="text" name="Iprenom" class="form-control mt-1 mb-2" placeholder="Entez votre prenom" required>
             <label for="exampleInputEmail1">Nom :</label>
             <input type="text" name="Inom" class="form-control mt-1 mb-2" placeholder="Entez votre nom" required>
-            <label for="exampleInputEmail1">Mot de passse :</label>
+            <label for="exampleInputEmail1">Mot de passe :</label>
             <input type="password" name="Ipassword" class="form-control mt-1 mb-2" placeholder="Entez votre mot de passe" required>
             <button type="submit" class="btn btn-primary mt-5 ml-5"> Je m'inscris </button>
           </form>

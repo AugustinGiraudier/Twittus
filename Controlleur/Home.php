@@ -43,7 +43,7 @@ else{
     if($Inscription->VerfifyInfos())
     {
       $Inscription->SetNewUser();
-      header("Location: ?step=connexion");
+      header("Location: ?step=connexion,succes=1");
       exit();
     }
   }
@@ -51,5 +51,9 @@ else{
   {
     $error = $e->getMessage();
   }
+}
+if(isset($GET['succes']))
+{
+  $success = "Inscription réussie avec succès !";
 }
 ?>
