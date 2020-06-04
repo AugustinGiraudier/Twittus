@@ -1,4 +1,5 @@
 <?php
+require_once "../Vendor/Autoload.php";
 use Twittus\Connexion;
 use Twittus\Inscription;
 session_start();
@@ -52,4 +53,7 @@ else{
     $error = $e->getMessage();
   }
 }
+$title = "Twittus - Home";
+require "../Vue/Header.php";
+require "../Vue/Home.php";
 ?>

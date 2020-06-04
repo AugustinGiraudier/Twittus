@@ -2,35 +2,35 @@
 require "../vendor/autoload.php";
 $router = new AltoRouter();
 $router->map('GET','/',function () {
-    require "../Vue/Home.php";
+    require "../Controlleur/Home.php";
     
 });
 $router->map('POST','/',function () {
-    require "../Vue/Home.php";
+    require "../Controlleur/Home.php";
     
 });
 $router->map('GET','/Profile',function () {
-    require "../Vue/Profile.php";
+    require "../Controlleur/Profile.php";
     
 });
 $router->map('POST','/Profile',function () {
-    require "../Vue/Profile.php";
+    require "../Controlleur/Profile.php";
     
 });
 $router->map('GET','/ChangeInfos',function () {
-    require "../Vue/ChangeInfos.php";
+    require "../Controlleur/ChangeInfos.php";
     
 });
 $router->map('POST','/ChangeInfos',function () {
-    require "../Vue/ChangeInfos.php";
+    require "../Controlleur/ChangeInfos.php";
     
 });
 $router->map('GET','/PublicProfile',function () {
-    require "../Vue/PublicProfile.php";
+    require "../Controlleur/PublicProfile.php";
     
 });
 $router->map('POST','/PublicProfile',function () {
-    require "../Vue/PublicProfile.php";
+    require "../Controlleur/PublicProfile.php";
     
 });
 

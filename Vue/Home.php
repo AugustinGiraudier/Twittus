@@ -1,9 +1,4 @@
-<?php
-$title = "Twittus - Home";
-require_once "../Vendor/Autoload.php";
-require "../Controlleur/Home.php";
-require "../Vue/Header.php";
-?>
+
 
 <div class="container mt-5 border rounded">
   <?php if(isset($_GET['success'])):?> 
