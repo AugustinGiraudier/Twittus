@@ -117,7 +117,9 @@ if(isset($_GET['delTweet']))
         //////suppr tweet
         $succes = 'tweet supr';
     }
-    $erreurs = "supr pas celui d'un autre wesh";
+    else{
+        $erreurs = "supr pas celui d'un autre wesh";
+    }
 }
 $followeds = GetFollowed();
 if(!isset($followeds[1]))
