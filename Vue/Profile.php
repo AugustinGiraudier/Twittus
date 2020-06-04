@@ -106,6 +106,7 @@ const MAX_TWEET_LEN = 140;
     $query->execute([
         'id'    =>  $Tid
     ]);
+    //supprime les retweets associés à ce tweet :
     $query2 = $Pdo->prepare("DELETE FROM `retweets` WHERE `retweets`.`retweeted_tweet_id` = :id");
     $query2->execute([
         'id'    =>  $Tid
@@ -249,16 +250,19 @@ if(isset($_POST['NewTweet']))
     if(!isset($erreurs))
     {
         //envoit à la base de données
-        $succes = 'Tweet envoyé !';
         $Pdo = Inscription::GetPdo();
         $query4 = $Pdo->prepare("INSERT INTO `tweets` (`tweet_id`, `sender_id`, `content`, `publish_date`) VALUES (NULL, :id, :content, CURRENT_TIME());");
         $test = $query4->execute([
             'id'        => $_SESSION['id'],
             'content'   => $_POST['NewTweet']
         ]);
+        header('location: Profile?success=1');
     }
 }
-
+if(isset($_GET['success']))
+{
+    $succes = 'Tweet envoyé !';
+}
 ?>
 
 
