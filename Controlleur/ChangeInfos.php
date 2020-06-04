@@ -1,5 +1,6 @@
 <?php
 use Twittus\Inscription;
+require '../Model/ChangeInfos.php';
 $changeStep = null;
 session_start();
 $succes = null;
@@ -11,24 +12,14 @@ if(!(isset($_SESSION['email'])))
 }
 if(isset($_POST['NewPrenom']))
 {
-    $Pdo = Inscription::GetPdo();
-    $query5 = $Pdo->prepare("UPDATE `users` SET `first_name` = :prenom WHERE `users`.`user_id` = :id;");
-    $query5->execute([
-        'prenom'    => htmlentities($_POST['NewPrenom']),
-        'id'        => htmlentities($_SESSION['id'])
-    ]);
+    DB_UpdatePrenom();
     $_SESSION['prenom'] = htmlentities($_POST['NewPrenom']);
     $succes = 'Modification effectuée avec succès !';
     unset($_GET['step']);
 }
 if(isset($_POST['NewNom']))
 {
-    $Pdo = Inscription::GetPdo();
-    $query5 = $Pdo->prepare("UPDATE `users` SET `last_name` = :nom WHERE `users`.`user_id` = :id;");
-    $query5->execute([
-        'nom'    => htmlentities($_POST['NewNom']),
-        'id'        => htmlentities($_SESSION['id'])
-    ]);
+    DB_UpdateNom();
     $_SESSION['nom'] = htmlentities($_POST['NewNom']);
     $succes = 'Modification effectuée avec succès !';
     unset($_GET['step']);
@@ -46,12 +37,7 @@ if(isset($_POST['NewEmail']))
     }
     if($continue)
     {
-        $Pdo = Inscription::GetPdo();
-        $query5 = $Pdo->prepare("UPDATE `users` SET `e_mail` = :email WHERE `users`.`user_id` = :id;");
-        $query5->execute([
-            'email'    => htmlentities($_POST['NewEmail']),
-            'id'        => htmlentities($_SESSION['id'])
-        ]);
+        DB_UpdateEmail();
         $_SESSION['email'] = htmlentities($_POST['NewEmail']);
         $succes = 'Modification effectuée avec succès !';
     }
@@ -61,21 +47,12 @@ if(isset($_POST['NewMdp']))
 {
     if(Inscription::VerifyPassword($_POST['NewMdp']))
     {
-        $Pdo = Inscription::GetPdo();
-        $query6 = $Pdo->prepare("SELECT users.pass as pass FROM users WHERE users.user_id = :id");
-        $query6->execute([
-            'id'  => $_SESSION['id']
-        ]);
-        $fetch = $query6->fetch();
+        $fetch = DB_GetPass();
         if($fetch)
         {
             if(password_verify($_POST['AncienMdp'],$fetch['pass']))
             {   
-                $query5 = $Pdo->prepare("UPDATE `users` SET `pass` = :pass WHERE `users`.`user_id` = :id;");
-                $query5->execute([
-                    'pass'    => password_hash($_POST['NewMdp'],PASSWORD_DEFAULT, ['cost'=>12]),
-                    'id'        => htmlentities($_SESSION['id'])
-                ]);
+                DB_UpdatePass();
                 $succes = 'Modification effectuée avec succès !';
                 unset($_GET['step']);;
             }

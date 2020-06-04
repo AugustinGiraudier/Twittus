@@ -18,7 +18,7 @@ require "../Vue/HTMLFunctions.php";
 
       <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav mr-auto">
-            <?= navlink("Twittus", "active");?>
+            <?= navlink("Twittus", "active strong");?>
         </ul>
       </div>
     </nav>
