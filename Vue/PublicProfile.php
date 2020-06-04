@@ -34,12 +34,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-<?php 
-require "../Vue/Footer.php";
-?>
