@@ -43,7 +43,7 @@ else{
     if($Inscription->VerfifyInfos())
     {
       $Inscription->SetNewUser();
-      header("Location: ?step=connexion,succes=1");
+      header("Location: ?step=connexion&succes=1");
       exit();
     }
   }
