@@ -99,6 +99,14 @@ const MAX_TWEET_LEN = 140;
     }
     return true;
  }
+ function DelTweet($Tid)
+ {
+    $Pdo = Inscription::GetPdo();
+    $query = $Pdo->prepare("DELETE FROM `tweets` WHERE `tweets`.`tweet_id` = :id");
+    $query->execute([
+        'id'    =>  $Tid
+    ]);
+ }
  $tweetSortByDate = function ($a,$b)
  {
     $ta = new DateTime($a['publish_date']);
@@ -114,8 +122,8 @@ if(isset($_GET['delTweet']))
 {
     if(VerifyTweeter($_GET['delTweet'],$_SESSION['id']))
     {
-        //////suppr tweet
-        $succes = 'tweet supr';
+        DelTweet($_GET['delTweet']);
+        $succes = 'Tweet supprimé';
     }
     else{
         $erreurs = "Vous ne pouvez pas supprimer un tweet qui ne vous appartient pas...";
@@ -341,8 +349,11 @@ if(isset($_POST['NewTweet']))
                                 <li class = "badge font-weight-light"><?=htmlentities($tweet['publish_date'])?></li>
                             </div>
                             <p class = "mt-4"><?=htmlentities($tweet['content'])?></p>
-                            <a href = "Profile?retweetid=<?=$tweet['tweet_id']?>"><li class = "badge">retweeter</li></a>
-                            <a href = "Profile?delTweet=<?=$tweet['tweet_id']?>"><li class = "badge text-danger">supprimer</li></a>
+                            <?php if($_SESSION['email'] === $tweet['e_mail']):?>
+                                <a href = "Profile?delTweet=<?=$tweet['tweet_id']?>"><li class = "badge text-danger">supprimer</li></a>
+                            <?php else: ?>    
+                                <a href = "Profile?retweetid=<?=$tweet['tweet_id']?>"><li class = "badge">retweeter</li></a>
+                            <?php endif ?>
                         </div>
                     </div>
                 <?php endforeach?>
