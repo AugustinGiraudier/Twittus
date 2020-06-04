@@ -118,7 +118,7 @@ if(isset($_GET['delTweet']))
         $succes = 'tweet supr';
     }
     else{
-        $erreurs = "supr pas celui d'un autre wesh";
+        $erreurs = "Vous ne pouvez pas supprimer un tweet qui ne vous appartient pas...";
     }
 }
 $followeds = GetFollowed();
