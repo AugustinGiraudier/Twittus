@@ -12,14 +12,13 @@ require "../Vue/HTMLFunctions.php";
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
       <img style ="width: 55px; height: 55px;" class = "mr-3 " src="Public/LogoTwittus.png" alt="">
-      <a class="navbar-brand" href="/">Twittus</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav mr-auto">
-            <?= navlink("Home", "active");?>
+            <?= navlink("Twittus", "active");?>
         </ul>
       </div>
     </nav>

@@ -287,7 +287,7 @@ if(isset($_GET['success']))
                 <div class = "list-group-item active rounded mt-4">
                     <h6>Rechercher un utilisateur :</h6>
                     <form action="" method="POST">
-                        <input type="email" name="recherche" class = "mt-3 form-control" placeholder="EX : John.Doe@Twittus.com">
+                        <input type="email" name="recherche" class = "mt-3 form-control" placeholder="EX : mickey@disney.com">
                         <button type='submit' class = "mt-3 btn btn-outline-light">Rechercher</button>
                     </form>
                     <?php if(isset($recherche)): ?>
