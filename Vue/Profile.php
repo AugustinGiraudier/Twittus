@@ -106,6 +106,10 @@ const MAX_TWEET_LEN = 140;
     $query->execute([
         'id'    =>  $Tid
     ]);
+    $query2 = $Pdo->prepare("DELETE FROM `retweets` WHERE `retweets`.`retweeted_tweet_id` = :id");
+    $query2->execute([
+        'id'    =>  $Tid
+    ]);
  }
  $tweetSortByDate = function ($a,$b)
  {
