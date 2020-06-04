@@ -1,3 +1,6 @@
+<head>
+  <title> <?= $title; ?> </title>
+</head>
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">

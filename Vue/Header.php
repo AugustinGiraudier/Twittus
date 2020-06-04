@@ -1,5 +1,5 @@
 <?php 
-require "../Vue/HTMLFunctions.php";
+require "../Controlleur/HTMLFunctions.php";
 ?>
 <!doctype html>
 <html lang="fr">
