@@ -125,7 +125,7 @@ class Inscription
     }
 
     //renvoie true si le prenom et le nom sont trop longs ou trop courts
-    private function VerifyName(string $prenom, string $nom):bool
+    public static function VerifyName(string $prenom, string $nom):bool
     {
         if(strlen($prenom)<=30 && strlen($nom)<=30 && strlen($prenom)>=5 && strlen($nom)>=5)
         {

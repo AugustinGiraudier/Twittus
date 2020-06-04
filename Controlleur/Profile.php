@@ -8,6 +8,14 @@ $erreurs = null;
 $infos = null;
 $AlreadyFollowed = null;
 
+//si l'utilisateur n'a pas de session ouverte :
+if(!(isset($_SESSION['email'])))
+{
+    //redirigé au home
+    header('Location: /');
+    exit();
+}
+
 //enleve les emojis d'une chaine :
 function remove_emoji($string) {
 
@@ -36,6 +44,8 @@ function verifierTweet()
     }
     return null;
  }
+
+ //renvoie les personnes suivies
  function GetFollowed():array
  {
     $followed = [];
@@ -52,6 +62,8 @@ function verifierTweet()
     $followed[]=$_SESSION['id'];
     return $followed;
  }
+
+ //recupere tous les tweets qui doivent etre affichés
  function GetTweets(array $followed):array
  {
     $tweets2 = [];
@@ -82,29 +94,38 @@ function verifierTweet()
     } 
     return $tweets2;
  }
- function verifyTweeter($Tid, $Uid)
+
+ //verifie si le tweet appartient à l'utilisateur
+ function verifyTweeter($Tweetid, $Userid)
  {
-    $fetch = DB_GetTweetsSenders($Tid);
-    if($fetch['sender_id'] !== $Uid)
+    $fetch = DB_GetTweetsSenders($Tweetid);
+    if($fetch['sender_id'] !== $Userid)
     {
         return false;
     }
     return true;
  }
+
+ //supprime le tweet avec son id
  function DelTweet($Tid)
  {
     DB_DeleteTweetsWithId($Tid);
     //supprime les retweets associés à ce tweet :
     DB_DeleteRetweetswithId($Tid);
  }
+
+ //fonction permettant le tri des tweets par date
  $tweetSortByDate = function ($a,$b)
  {
     $ta = new DateTime($a['publish_date']);
     $tb = new DateTime($b['publish_date']);
     return ($ta > $tb) ? -1 : 1;
  };
+
+ //si un tweet est référencé pour etre supprimé :
 if(isset($_GET['delTweet']))
-{
+{   
+    // si l'utilisateur courrant est bien le propriétaire du tweet :
     if(VerifyTweeter($_GET['delTweet'],$_SESSION['id']))
     {
         DelTweet($_GET['delTweet']);
@@ -114,17 +135,25 @@ if(isset($_GET['delTweet']))
         $erreurs = "Vous ne pouvez pas supprimer un tweet qui ne vous appartient pas...";
     }
 }
+
+
 $followeds = GetFollowed();
+//si aucun user suivit n'est trouvé :
 if(!isset($followeds[1]))
 {
     $infos = 'Vous ne suivez encore personne...';
 }
 $tweets = GetTweets($followeds);
+//tri des tweets par date :
 uasort($tweets, $tweetSortByDate);
+
+//si aucun tweet n'a été récupéré :
 if(!isset($tweets[0]))
 {
     $infos2 = "Vous n'avez aucun tweet";
 }
+
+//en fonction de l'étape passée en url :
 if(isset($_GET['step']))
 {
     if($_GET['step'] === 'deconnexion')
@@ -133,12 +162,12 @@ if(isset($_GET['step']))
         header('Location: /');
         exit();
     }
-    if($_GET['step'] === 'changeinfos')
+    elseif($_GET['step'] === 'changeinfos')
     {
         header('Location: ChangeInfos');
         exit();
     }
-    if($_GET['step'] === 'follow')
+    elseif($_GET['step'] === 'follow')
     {
         if(isset($_SESSION['followedId']))
         {
@@ -148,7 +177,7 @@ if(isset($_GET['step']))
             exit();
         }
     }
-    if($_GET['step'] === 'unfollow')
+    elseif($_GET['step'] === 'unfollow')
     {
         if(isset($_SESSION['followedId']))
         {
@@ -159,17 +188,15 @@ if(isset($_GET['step']))
         }
     }
 }
+
+//si un id de retweet est passé par l'url :
 if(isset($_GET['retweetid']))
 {
     DB_AddRetweet();
     header('location: Profile');
     exit();
 }
-if(!(isset($_SESSION['email'])))
-{
-    header('Location: /');
-    exit();
-}
+
 if(isset($_POST['recherche']))
 {
     //trouver des résultats : 
@@ -213,6 +240,8 @@ if(isset($_POST['NewTweet']))
         exit();
     }
 }
+
+//si "success" est present en parametre de l'url :
 if(isset($_GET['success']))
 {
     $succes = 'Tweet envoyé !';
