@@ -85,6 +85,20 @@ const MAX_TWEET_LEN = 140;
     } 
     return $tweets2;
  }
+ function verifyTweeter($Tid, $Uid)
+ {
+    $Pdo = Inscription::GetPdo();
+    $query = $Pdo->prepare("SELECT tweets.sender_id FROM tweets WHERE tweets.tweet_id = :id");
+    $query->execute([
+        'id'    =>  $Tid
+    ]);
+    $fetch = $query->fetch();
+    if($fetch['sender_id'] !== $Uid)
+    {
+        return false;
+    }
+    return true;
+ }
  $tweetSortByDate = function ($a,$b)
  {
     $ta = new DateTime($a['publish_date']);
@@ -96,6 +110,15 @@ const MAX_TWEET_LEN = 140;
 
 <?php
 session_start();
+if(isset($_GET['delTweet']))
+{
+    if(VerifyTweeter($_GET['delTweet'],$_SESSION['id']))
+    {
+        //////suppr tweet
+        $succes = 'tweet supr';
+    }
+    $erreurs = "supr pas celui d'un autre wesh";
+}
 $followeds = GetFollowed();
 if(!isset($followeds[1]))
 {
@@ -317,6 +340,7 @@ if(isset($_POST['NewTweet']))
                             </div>
                             <p class = "mt-4"><?=htmlentities($tweet['content'])?></p>
                             <a href = "Profile?retweetid=<?=$tweet['tweet_id']?>"><li class = "badge">retweeter</li></a>
+                            <a href = "Profile?delTweet=<?=$tweet['tweet_id']?>"><li class = "badge text-danger">supprimer</li></a>
                         </div>
                     </div>
                 <?php endforeach?>
