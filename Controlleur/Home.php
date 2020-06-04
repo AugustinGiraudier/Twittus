@@ -2,6 +2,7 @@
 use Twittus\Connexion;
 use Twittus\Inscription;
 session_start();
+$title = "Twittus - Home";
 $error = null;
 $step_Inscription = null;
 $step_connexion = null;
@@ -52,6 +53,5 @@ else{
     $error = $e->getMessage();
   }
 }
-$title = "Twittus - Home";
 require "../Vue/Home.php";
 ?>

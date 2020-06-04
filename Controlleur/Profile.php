@@ -2,6 +2,7 @@
 session_start();
 require '../Model/Profile.php';
 const MAX_TWEET_LEN = 140;
+$title = "Twittus - Profile";
 $recherche = null;
 $erreurs = null;
 $infos = null;
@@ -195,6 +196,5 @@ if(isset($_GET['success']))
 {
     $succes = 'Tweet envoyé !';
 }
-$title = "Twittus - Profile";
 require '../Vue/Profile.php';
 ?>

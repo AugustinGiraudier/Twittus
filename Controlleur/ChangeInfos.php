@@ -2,8 +2,9 @@
 use Twittus\Inscription;
 require '../Model/ChangeInfos.php';
 $changeStep = null;
-session_start();
+$title = "Twittus - Modifier mes infos";
 $succes = null;
+session_start();
 
 if(!(isset($_SESSION['email'])))
 {
@@ -81,7 +82,6 @@ if(isset($_GET['step']))
     }
     
 }
-$title = "Twittus - Modifier mes infos";
 require '../Vue/ChangeInfos.php';
 ?>
 
