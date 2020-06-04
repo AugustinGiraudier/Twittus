@@ -10,13 +10,17 @@
   <?php endif?>
   <div class="row justify-content-md-center mt-5">
     <div class="col text-center mx-5">
+      <!-- boutons de switch "inscription/connection" -->
       <a class="list-group-item rounded <?= $step_Inscription ? 'active' : ''?>" href="?step=inscription">Inscription</a>
       <a class="list-group-item border rounded mt-4 <?= $step_connexion ? 'active' : ''?>" href="?step=connexion">Connexion</a>
     </div>
+    <!-- formulaire -->
     <?php 
     if($step_connexion):
+      //écrit le formulaire de connexion
       echo ConnectionForm();
     else:
+      //écrit le formulaire d'inscription
       echo InscriptionForm();
     endif 
     ?>

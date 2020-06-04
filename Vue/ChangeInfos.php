@@ -3,10 +3,12 @@
 </head>
 <div class="container-fluid">
     <div class="row">
+        <!-- partie gauche -->
         <div class="col-3">
             <div class ="pt-1 sticky-top">
                 <div class = "list-group-item active rounded mt-4">
                     <div class="ml-4">
+                        <!-- infos du compte -->
                         <div>
                             <h4 class = "font-weight-bold ml-1"><?=htmlentities($_SESSION['prenom']) . ' ' . htmlentities($_SESSION['nom'])?></h4>
                             <li class = "badge badge-light"><?=htmlentities($_SESSION['email'])?></li>
@@ -20,6 +22,7 @@
             </div>
         </div>
         <div class="col-1"></div>
+        <!-- partie droite -->
         <div class="col-6 list-group-item rounded mt-4">
             <?php if(isset($erreurs)):?>
                 <div class="alert alert-danger text-center"><?=$erreurs?></div>
@@ -27,10 +30,11 @@
             <?php if(isset($succes)):?>
                 <div class="alert alert-success text-center"><?=$succes?></div>
             <?php endif ?>
-            <!-- formulaire -->
+            <!-- formulaire de changement d'infos -->
 
             <div class = "shadow p-3 mb-5 bg-light rounded col">
                 <p>
+                    <!-- partie prenom -->
                     <ui>Prenom : <label class = 'badge badge-primary' for=""><?=htmlentities($_SESSION['prenom'])?></label></ui>
                     <?php if($changeStep === 'p'): ?>
                         <form action="" class = "form" method="POST">
@@ -42,6 +46,7 @@
                     <?php endif ?>
                 </p>
                 <p>
+                    <!-- partie nom -->
                     <ui>Nom : <label class = 'badge badge-primary' for=""><?=htmlentities($_SESSION['nom'])?></label></ui>
                     <?php if($changeStep === 'n'): ?>
                         <form action="" class = "form" method="POST">
@@ -53,6 +58,7 @@
                     <?php endif ?>
                 </p>
                 <p>
+                    <!-- partie email -->
                     <ui>Adresse E-mail : <label class = 'badge badge-primary' for=""><?=htmlentities($_SESSION['email'])?></label></ui>
                     <?php if($changeStep === 'e'): ?>
                         <form action="" class = "form" method="POST">
@@ -64,6 +70,7 @@
                     <?php endif ?>
                 </p>
                 <p>
+                    <!-- partie mot de passe -->
                     <?php if($changeStep === 'm'): ?>
                         <form action="" class = "form" method="POST">
                             <input name = 'AncienMdp' type="password" placeholder = 'Ancien pass' required>

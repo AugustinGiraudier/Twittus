@@ -3,16 +3,21 @@ namespace Twittus;
 use \Exception;
 class Connexion
 {
+    /*--------------------------------------------Données Membres------------------------------------------------------*/ 
 
     private $email = null;
     private $password = null;
 
+    /*-----------------------------------------------Fonctions---------------------------------------------------------*/
+
+    //constructeur
     public function __construct(string $email, string $password)
     {
         $this->email = $email;
         $this->password = $password;
     }
 
+    //renvoie true si les infos de connexion sont correctes
     public function VerifyConnexionInformations():bool
     {
         try{
@@ -25,6 +30,7 @@ class Connexion
                     'email' => $this->email
                 ]);
                 $fetch = $query->fetch();
+                //les infos utilisateur sont mises en session
                 $_SESSION = [
                     'email' => $this->email,
                     'nom'   => $fetch['nom'],
@@ -42,6 +48,8 @@ class Connexion
         }
         throw new Exception("Mot de passe incorrect...");
     }
+
+    //verifie aupres de la bdd si l'email est associe à un compte 
     private function DoEmailExist():bool
     {
         $Pdo = Inscription::GetPdo();
@@ -55,6 +63,8 @@ class Connexion
         }
         throw new Exception("Email inéxistant dans la base de donnée...");
     }
+
+    //recupere le mot de passe crypté associé au compte
     private function GetBddPassword()
     {
         $Pdo = Inscription::GetPdo();

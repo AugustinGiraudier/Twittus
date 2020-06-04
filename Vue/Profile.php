@@ -48,7 +48,7 @@
         </div>
         <div class="col-1"></div>
         <div class="col-6 list-group-item rounded mt-4">
-            <!--  massages erreurs / succes -->
+            <!--  messages erreurs / succes -->
             <?php if(isset($erreurs)):?>
                 <div class="alert alert-danger text-center"><?=$erreurs?></div>
             <?php endif ?>

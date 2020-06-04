@@ -1,4 +1,6 @@
 <?php
+
+//lien de barre des taches
 function navlink(string $title, string $classAtribute = null): string
 {
     return <<<HTML
@@ -7,6 +9,8 @@ function navlink(string $title, string $classAtribute = null): string
     </li>
 HTML;
 }
+
+//formulaire de connection
 function ConnectionForm():string
 {
   $address= '';
@@ -28,6 +32,8 @@ function ConnectionForm():string
   </div>
 HTML;
 }
+
+//formulaire d'inscription
 function InscriptionForm():string
 {
     return <<< HTML

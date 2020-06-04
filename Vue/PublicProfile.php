@@ -19,10 +19,12 @@
         </div>
         <div class="col-1"></div>
         <div class="col-6 list-group-item rounded mt-4">
+            <!-- infos affichées -->
             <div class="alert alert-info text-center"><?='Ses Derniers Tweets :'?></div>
             <?php if(isset($infos)):?>
                 <div class="alert alert-light text-center"><?=$infos?></div>
             <?php endif?>
+            <!-- affichage des derniers tweets -->
             <?php foreach($Tweets as $tweet):?>
                 <div class = "shadow p-3 mb-5 bg-light rounded">
                     <li class = "badge font-weight-light"><?=htmlentities($tweet['publish_date'])?></li>
