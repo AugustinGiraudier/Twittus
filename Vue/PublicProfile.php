@@ -1,9 +1,3 @@
-<?php
-$title = "Twittus - Profile Public";
-require "../Vue/Header.php";
-require '../Controlleur/PublicProfile.php';
-?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">

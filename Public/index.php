@@ -36,7 +36,7 @@ $router->map('POST','/PublicProfile',function () {
 
 
 $match = $router->match();
-
+require "../Vue/Header.php";
 if($match !== null && $match !== false)
 {
     $match['target']();
@@ -45,3 +45,4 @@ else
 {
     echo "erreur 404 - page introuvable...";
 }
+require '../Vue/Footer.php';

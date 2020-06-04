@@ -1,5 +1,3 @@
-
-
 <div class="container mt-5 border rounded">
   <?php if(isset($_GET['success'])):?> 
     <div class="alert alert-success container mt-4 text-center">Vous avez été enregistré avec succès !</div>
@@ -21,8 +19,4 @@
     ?>
   </div>
 </div>
-
-<?php
-require "../Vue/Footer.php";
-?>
 

@@ -81,4 +81,7 @@ if(isset($_GET['step']))
     }
     
 }
+$title = "Twittus - Modifier mes infos";
+require '../Vue/ChangeInfos.php';
 ?>
+

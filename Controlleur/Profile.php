@@ -1,6 +1,11 @@
 <?php
 session_start();
+require '../Model/Profile.php';
 const MAX_TWEET_LEN = 140;
+$recherche = null;
+$erreurs = null;
+$infos = null;
+$AlreadyFollowed = null;
 function verifierTweet()
  {
     if(strlen($_POST['NewTweet']) > MAX_TWEET_LEN || strlen($_POST['NewTweet']) < 1)
@@ -190,4 +195,6 @@ if(isset($_GET['success']))
 {
     $succes = 'Tweet envoyé !';
 }
+$title = "Twittus - Profile";
+require '../Vue/Profile.php';
 ?>

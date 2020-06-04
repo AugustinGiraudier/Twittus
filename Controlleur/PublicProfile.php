@@ -1,5 +1,4 @@
 <?php 
-require_once "../vendor/autoload.php";
 require '../Model/PublicProfile.php';
 $infos = null;
 function FindUserWithId(int $id)
@@ -27,4 +26,6 @@ if(isset($_GET['id']))
     $user = FindUserWithId($_GET['id']);
     $Tweets = FindUserTweetsWithId($_GET['id']);
 }
+$title = "Twittus - Profile Public";
+require '../Vue/PublicProfile.php';
 ?>

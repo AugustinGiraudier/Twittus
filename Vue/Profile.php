@@ -1,15 +1,3 @@
-<?php
-$title = "Twittus - Profile";
-$recherche = null;
-$erreurs = null;
-$infos = null;
-$AlreadyFollowed = null;
-require "../Vue/Header.php";
-require_once "../Vendor/Autoload.php";
-require '../Model/Profile.php';
-require '../Controlleur/Profile.php';
-?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
@@ -111,8 +99,3 @@ require '../Controlleur/Profile.php';
         </div>
     </div>
 </div>
-
-
-<?php 
-require "../Vue/Footer.php";
-?>

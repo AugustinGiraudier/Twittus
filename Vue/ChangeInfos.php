@@ -1,10 +1,3 @@
-<?php
-$title = "Twittus - Modifier mes infos";
-require '../Controlleur/ChangeInfos.php';
-require "../Vue/Header.php";
-?>
-
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
@@ -83,7 +76,3 @@ require "../Vue/Header.php";
         </div>
     </div>
 </div>
-
-<?php 
-require "../Vue/Footer.php";
-?>
