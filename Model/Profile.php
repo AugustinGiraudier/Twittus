@@ -82,9 +82,7 @@ function DB_DeleteFollow()  //supprime le follow en cours
 function DB_AddRetweet()    //ajoute le retweet en cours
 {
     $Pdo = Inscription::GetPdo();
-    //////////////////
-    $Pdo->exec("SET time_zone = '+02:00';");
-    //////////////////
+    $Pdo->exec("SET time_zone = '+02:00';");    //changement du fuseau horaire
     $querry = $Pdo->prepare("INSERT INTO `retweets` (`retweet_id`, `retweet_user_id`, `retweeted_tweet_id`, `publish_date`) VALUES (NULL, :userid, :tweetid, CURRENT_TIME());");
     $querry->execute([
         'userid' => $_SESSION['id'],
@@ -115,6 +113,7 @@ function DB_GetFollows($fetch)  //retourne l'id de follow entre l'utilisateur en
 function DB_AddTweet()  //ajoute le tweet en cours a la base de donnée
 {
     $Pdo = Inscription::GetPdo();
+    $Pdo->exec("SET time_zone = '+02:00';"); //changement du fuseau horaire
     $query4 = $Pdo->prepare("INSERT INTO `tweets` (`tweet_id`, `sender_id`, `content`, `publish_date`) VALUES (NULL, :id, :content, CURRENT_TIME());");
     $test = $query4->execute([
         'id'        => $_SESSION['id'],
